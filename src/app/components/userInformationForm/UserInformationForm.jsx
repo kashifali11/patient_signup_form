@@ -1,17 +1,19 @@
-import Form from "antd/lib/form/Form";
+import {Form,Button} from "antd";
 import React from "react";
 import PersonalInformation from "./personalInformation/PersonalInformation.jsx";
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
+
 export default function UserInformationForm() {
   const onFinish = (values) => {
     console.log(values);
   };
   return (
-    <Form  name="patient_signup_form" onFinish={onFinish}>
+    <Form name="patient_signup_form" onFinish={onFinish}>
       <PersonalInformation />
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
     </Form>
   );
 }

@@ -26,6 +26,29 @@ const personalInfoInput = [
     ],
   },
 ];
+const addressInfoInput = [
+  {
+    name: ["personalInfo", "address"],
+    label: "Address",
+    rules: [{ required: true, message: "Please input your address!" }],
+  },
+  {
+    name: ["personalInfo", "city"],
+    label: "City",
+    rules: [{ required: true, message: "Please input your city name!" }],
+  },
+  {
+    name: ["personalInfo", "state"],
+    label: "First Name",
+    rules: [{ required: true, message: "Please input your state name!" }],
+  },
+  {
+    name: ["personalInfo", "zipCode"],
+    label: "Zip Code",
+    rules: [{ required: true, message: "Please input your zip code!" }],
+  },
+];
+
 const { Option } = Select;
 export default function PersonalInformation() {
   return (
@@ -47,9 +70,7 @@ export default function PersonalInformation() {
           <Form.Item
             label="Gender"
             name={["personalInfo", "gender"]}
-            rules={[
-              { required: true, message: "Please select your gender!" },
-            ]}
+            rules={[{ required: true, message: "Please select your gender!" }]}
           >
             <Select style={{ width: 130 }}>
               <Option value="None">None</Option>
@@ -58,6 +79,7 @@ export default function PersonalInformation() {
             </Select>
           </Form.Item>
         </Col>
+        <InputTextFieldList inputAttributes={addressInfoInput} />
       </Row>
     </>
   );

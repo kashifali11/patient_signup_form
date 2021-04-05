@@ -9,7 +9,7 @@ export default function PersonalInformation() {
           <Form.Item
             className="gutter-row"
             span={6}
-            name="phone_no"
+            name={["personalInfo", "phone_no"]}
             label="Phone Number"
             rules={[
               { required: true, message: "Please input your phone number!" },
@@ -22,10 +22,11 @@ export default function PersonalInformation() {
           <Form.Item
             className="gutter-row"
             span={6}
-            name="email"
+            name={["personalInfo", "email"]}
             label="Email"
             rules={[
               { required: true, message: "Please input your email!" },
+              { type: "email", message: "Please input valid email!" },
             ]}
           >
             <Input />

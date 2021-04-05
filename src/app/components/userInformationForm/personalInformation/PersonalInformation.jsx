@@ -1,35 +1,46 @@
-import { Form, Input, Row, Col } from "antd";
+import { Form, Row, Col, DatePicker } from "antd";
 import React from "react";
+import InputTextFieldList from "../../common/inputTextFieldList/InputTextFieldList.jsx";
+const personalInfoInput = [
+  {
+    name: ["personalInfo", "firstName"],
+    label: "First Name",
+    rules: [{ required: true, message: "Please input your first name!" }],
+  },
+  {
+    name: ["personalInfo", "lastName"],
+    label: "Last Name",
+    rules: [{ required: true, message: "Please input your last name!" }],
+  },
+  {
+    name: ["personalInfo", "phoneNo"],
+    label: "Phone Number",
+    rules: [{ required: true, message: "Please input your phone number!" }],
+  },
+  {
+    name: ["personalInfo", "email"],
+    label: "Email",
+    rules: [
+      { required: true, message: "Please input your email!" },
+      { type: "email", message: "Please input valid email!" },
+    ],
+  },
+];
 
 export default function PersonalInformation() {
   return (
     <>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col>
+        <InputTextFieldList inputAttributes={personalInfoInput} />
+        <Col className="gutter-row" span={6} xs={24} xl={8}>
           <Form.Item
-            className="gutter-row"
-            span={6}
-            name={["personalInfo", "phone_no"]}
-            label="Phone Number"
+            label="Date of Birth"
+            name={["personalInfo", "dob"]}
             rules={[
-              { required: true, message: "Please input your phone number!" },
+              { required: true, message: "Please select your date of birth!" },
             ]}
           >
-            <Input />
-          </Form.Item>
-        </Col>
-        <Col>
-          <Form.Item
-            className="gutter-row"
-            span={6}
-            name={["personalInfo", "email"]}
-            label="Email"
-            rules={[
-              { required: true, message: "Please input your email!" },
-              { type: "email", message: "Please input valid email!" },
-            ]}
-          >
-            <Input />
+            <DatePicker />
           </Form.Item>
         </Col>
       </Row>

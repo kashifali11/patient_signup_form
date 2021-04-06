@@ -8,22 +8,19 @@ const layout = {
 };
 
 export default function UserInformationForm() {
-  const [form] = Form.useForm();
-  useEffect(()=>{
-    form.setFieldsValue({id: uuidv4()});
-  },[]);
   const onFinish = (values) => {
     const fieldsValues = {...values,
       "uuid": uuidv4(),
       "personalInfo": {
         ...values.personalInfo,
-        "dob": values.personalInfo.dob.format("YYYY-MM-DD")
+        "dob": values.personalInfo.dob.format("YYYY-MM-DD"),
+        "snapshotOfId": values.personalInfo.snapshotOfId.fileList
       }
     } 
     console.log(fieldsValues);
   };
   return (
-    <Form form={form} {...layout} name="patient_signup_form" onFinish={onFinish}>
+    <Form {...layout} name="patient_signup_form" onFinish={onFinish}>
       <Typography.Title level={4}>Personal Information</Typography.Title>
       <PersonalInformation />
       <Form.Item>

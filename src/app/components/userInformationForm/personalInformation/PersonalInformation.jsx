@@ -39,7 +39,7 @@ const addressInfoInput = [
   },
   {
     name: ["personalInfo", "state"],
-    label: "First Name",
+    label: "State",
     rules: [{ required: true, message: "Please input your state name!" }],
   },
   {
@@ -80,14 +80,18 @@ export default function PersonalInformation() {
           </Form.Item>
         </Col>
         <InputTextFieldList inputAttributes={addressInfoInput} />
-        <Col className="gutter-row" span={6} xs={24} xl={8} c>
-          {/* <Form.Item
+        <Col className="gutter-row" span={6} xs={24} xl={8}>
+          <Form.Item
             name={["personalInfo", "snapshotOfId"]}
             label="Id Snapshot"
-            rules={[{ required: true, message: "Please upload snapshot of your Id!" }]}
+            rules={[
+              { required: true, message: "Please upload snapshot of your Id!" },
+            ]}
           >
-
-          </Form.Item> */}
+            <Upload style={{ width: "100%" }}>
+              <Button style={{ width: "100%" }}>UPLOAD</Button>
+            </Upload>
+          </Form.Item>
         </Col>
       </Row>
     </>

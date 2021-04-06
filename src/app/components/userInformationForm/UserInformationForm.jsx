@@ -1,7 +1,7 @@
 import { Form, Button } from "antd";
 import React from "react";
 import PersonalInformation from "./personalInformation/PersonalInformation.jsx";
-import InsuranceDetails from "./insuranceDetails/InsuranceDetails.jsx"
+import InsuranceDetails from "./insuranceDetails/InsuranceDetails.jsx";
 import { v4 as uuidv4 } from "uuid";
 const layout = {
   labelCol: { span: 6 },
@@ -10,14 +10,15 @@ const layout = {
 
 export default function UserInformationForm() {
   const onFinish = (values) => {
-    const fieldsValues = {...values,
-      "uuid": uuidv4(),
-      "personalInfo": {
+    const fieldsValues = {
+      ...values,
+      uuid: uuidv4(),
+      personalInfo: {
         ...values.personalInfo,
-        "dob": values.personalInfo.dob.format("YYYY-MM-DD"),
-        "snapshotOfId": values.personalInfo.snapshotOfId.fileList
-      }
-    } 
+        dob: values.personalInfo.dob.format("YYYY-MM-DD"),
+        snapshotOfId: values.personalInfo.snapshotOfId.fileList,
+      },
+    };
     console.log(fieldsValues);
   };
   return (

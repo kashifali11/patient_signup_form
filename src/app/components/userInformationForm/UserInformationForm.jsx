@@ -9,6 +9,7 @@ const layout = {
 };
 
 export default function UserInformationForm() {
+  const [form] = Form.useForm();
   const onFinish = (values) => {
     const fieldsValues = {
       ...values,
@@ -22,9 +23,9 @@ export default function UserInformationForm() {
     console.log(fieldsValues);
   };
   return (
-    <Form {...layout} name="patient_signup_form" onFinish={onFinish}>
+    <Form form={form} {...layout} name="patient_signup_form" onFinish={onFinish}>
       <PersonalInformation />
-      <InsuranceDetails />
+      <InsuranceDetails form={form} />
       <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit

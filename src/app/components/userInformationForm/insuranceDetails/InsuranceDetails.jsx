@@ -1,27 +1,44 @@
 import { Typography, Form, Select, Row, Col } from "antd";
-import React from "react";
-const haveInsurance = [
+import React, { useState } from "react";
+import InsuranceInformation from "./insuranceInformation/InsuranceInformation.jsx";
+const insurance = [
   { label: "Yes", value: "yes" },
   { label: "No", value: "no" },
 ];
-export default function InsuranceDetails() {
+export default function InsuranceDetails({ form }) {
+  const [haveInsurance, setHaveInsurance] = useState("");
+  const handleHaveInsuranceChange = (value) => {
+    setHaveInsurance(value);
+  };
   return (
     <>
       <Typography.Title level={4}>Insurance Details</Typography.Title>
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col span={8} xs={24} sm={22} lg={18} xl={14}>
+      <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
+        <Col className="gutter-row" span={8} xs={24} sm={22} lg={18} xl={14} >
           <Form.Item
-            label="Do you have any Insurance?"
-            name={["insuranceDetails", "haveInsurance"]}
+          wrapperCol={{span: 12}}
+            label="Do you have Insurance?"
+            name={["insuranceDetails", "insurance"]}
             rules={[
-              { required: true, message: "Please specify if you have insurance or not!" },
+              {
+                required: true,
+                message: "Please specify if you have insurance or not!",
+              },
             ]}
           >
-            <Select options={haveInsurance} />
+            <Select options={insurance} onChange={handleHaveInsuranceChange} />
           </Form.Item>
         </Col>
       </Row>
-      
+      <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
+        {haveInsurance === "yes" ? (
+          <InsuranceInformation />
+        ) : haveInsurance === "" ? (
+          <></>
+        ) : (
+          <div>no</div>
+        )}
+      </Row>
     </>
   );
 }

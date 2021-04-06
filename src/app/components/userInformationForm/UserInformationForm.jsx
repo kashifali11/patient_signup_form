@@ -1,5 +1,5 @@
-import { Form, Button, Typography } from "antd";
-import React, { useEffect } from "react";
+import { Form, Button } from "antd";
+import React from "react";
 import PersonalInformation from "./personalInformation/PersonalInformation.jsx";
 import { v4 as uuidv4 } from "uuid";
 const layout = {
@@ -21,7 +21,6 @@ export default function UserInformationForm() {
   };
   return (
     <Form {...layout} name="patient_signup_form" onFinish={onFinish}>
-      <Typography.Title level={4}>Personal Information</Typography.Title>
       <PersonalInformation />
       <Form.Item>
         <Button type="primary" htmlType="submit">

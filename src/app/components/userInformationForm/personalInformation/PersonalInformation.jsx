@@ -1,4 +1,4 @@
-import { Form, Row, Col, DatePicker, Select, Upload, Icon, Button } from "antd";
+import { Form, Row, Col, DatePicker, Select, Upload, Button, Typography } from "antd";
 import React from "react";
 import InputTextFieldList from "../../common/inputTextFieldList/InputTextFieldList.jsx";
 const personalInfoInput = [
@@ -53,6 +53,7 @@ const { Option } = Select;
 export default function PersonalInformation() {
   return (
     <>
+    <Typography.Title level={4}>Personal Information</Typography.Title>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <InputTextFieldList inputAttributes={personalInfoInput} />
         <Col className="gutter-row" span={6} xs={24} xl={8}>

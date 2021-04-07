@@ -26,9 +26,9 @@ export default function FamilyMembersDetails({ field, form }) {
       ],
     },
   ];
-  const handleInsuranceStatusChange = (value) =>{
+  const handleInsuranceStatusChange = (value) => {
     console.log(value);
-  }
+  };
   return (
     <>
       <InputTextFieldList inputAttributes={memberDetailsInputAttributes} />

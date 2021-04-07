@@ -2,9 +2,8 @@ import { Form } from "antd";
 import React from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
 
-export default function FamilyMembersDetails({ field, form }) {
+export default function FamilyMembersDetails({ field }) {
   const { fieldKey, name, isListedField } = field;
-  console.log(form.getFieldsValue());
   const memberDetailsInputAttributes = [
     {
       name: [name, "firstName"],

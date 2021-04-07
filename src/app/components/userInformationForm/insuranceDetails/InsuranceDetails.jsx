@@ -10,6 +10,7 @@ export default function InsuranceDetails({ form }) {
   const [haveInsurance, setHaveInsurance] = useState("");
   const handleHaveInsuranceChange = (value) => {
     setHaveInsurance(value);
+    form.setFieldsValue({familyDetails: []})
   };
   return (
     <>

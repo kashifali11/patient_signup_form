@@ -26,6 +26,9 @@ export default function FamilyMembersDetails({ field, form }) {
       ],
     },
   ];
+  const handleInsuranceStatusChange = (value) =>{
+    console.log(value);
+  }
   return (
     <>
       <InputTextFieldList inputAttributes={memberDetailsInputAttributes} />
@@ -53,7 +56,7 @@ export default function FamilyMembersDetails({ field, form }) {
             { required: true, message: "Please select insurance status!" },
           ]}
         >
-          <Select>
+          <Select onChange={handleInsuranceStatusChange}>
             {form.getFieldsValue().insuranceDetails.insurance === "yes" ? (
               <Option value="same">Same</Option>
             ) : (

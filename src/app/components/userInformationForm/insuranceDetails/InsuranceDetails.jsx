@@ -1,16 +1,19 @@
 import { Typography, Form, Select, Row, Col } from "antd";
 import React, { useState } from "react";
-import InsuranceAttestaion from "./insuranceAttestation/InsuranceAttestaion.jsx";
-import InsuranceInformation from "./insuranceInformation/InsuranceInformation.jsx";
-const insurance = [
-  { label: "Yes", value: "yes" },
-  { label: "No", value: "no" },
-];
+import InsuranceAttestaion from "../common/insuranceAttestation/InsuranceAttestation.jsx";
+import InsuranceInformation from "../common/insuranceInformation/InsuranceInformation.jsx";
+import {
+  insuranceCompanySelectAttributes,
+  insuranceNumberInputAttributes,
+  insuranceOptions,
+  insuranceSnapshotUploadAttributes,
+} from "../utils/insuranceDetailsUtils.js";
+
 export default function InsuranceDetails({ form }) {
   const [haveInsurance, setHaveInsurance] = useState("");
   const handleHaveInsuranceChange = (value) => {
     setHaveInsurance(value);
-    form.setFieldsValue({familyDetails: []});
+    form.setFieldsValue({ familyDetails: [] });
   };
   return (
     <>
@@ -28,13 +31,22 @@ export default function InsuranceDetails({ form }) {
               },
             ]}
           >
-            <Select options={insurance} onChange={handleHaveInsuranceChange} />
+            <Select
+              options={insuranceOptions}
+              onChange={handleHaveInsuranceChange}
+            />
           </Form.Item>
         </Col>
       </Row>
       <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
         {haveInsurance === "yes" ? (
-          <InsuranceInformation />
+          <InsuranceInformation
+            insuranceSnapshotUploadAttributes={
+              insuranceSnapshotUploadAttributes
+            }
+            insuranceCompanySelectAttributes={insuranceCompanySelectAttributes}
+            insuranceNumberInputAttributes={insuranceNumberInputAttributes}
+          />
         ) : haveInsurance === "no" ? (
           <InsuranceAttestaion />
         ) : (

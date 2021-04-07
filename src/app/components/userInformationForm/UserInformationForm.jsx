@@ -27,7 +27,7 @@ export default function UserInformationForm() {
     <Form form={form} {...layout} name="patient_signup_form" onFinish={onFinish}>
       <PersonalInformation />
       <InsuranceDetails form={form} />
-      <FamilyDetails />
+      <FamilyDetails form={form} />
       <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit

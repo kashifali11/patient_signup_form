@@ -1,5 +1,6 @@
 import { Typography, Form, Select, Row, Col } from "antd";
 import React, { useState } from "react";
+import InsuranceAttestaion from "./insuranceAttestation/InsuranceAttestaion.jsx";
 import InsuranceInformation from "./insuranceInformation/InsuranceInformation.jsx";
 const insurance = [
   { label: "Yes", value: "yes" },
@@ -14,9 +15,9 @@ export default function InsuranceDetails({ form }) {
     <>
       <Typography.Title level={4}>Insurance Details</Typography.Title>
       <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
-        <Col className="gutter-row" span={8} xs={24} sm={22} lg={18} xl={14} >
+        <Col className="gutter-row" span={8} xs={24} sm={22} lg={18} xl={14}>
           <Form.Item
-          wrapperCol={{span: 12}}
+            wrapperCol={{ span: 12 }}
             label="Do you have Insurance?"
             name={["insuranceDetails", "insurance"]}
             rules={[
@@ -33,10 +34,10 @@ export default function InsuranceDetails({ form }) {
       <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
         {haveInsurance === "yes" ? (
           <InsuranceInformation />
-        ) : haveInsurance === "" ? (
-          <></>
+        ) : haveInsurance === "no" ? (
+          <InsuranceAttestaion />
         ) : (
-          <div>no</div>
+          <></>
         )}
       </Row>
     </>

@@ -15,7 +15,7 @@ export default function InsuranceDetails({ form }) {
     <>
       <Typography.Title level={4}>Insurance Details</Typography.Title>
       <Row gutter={{ xs: 8, sm: 8, md: 8, lg: 8 }}>
-        <Col className="gutter-row" span={8} xs={24} sm={22} lg={18} xl={14}>
+        <Col className="gutter-row" span={8} xs={24} xl={14}>
           <Form.Item
             wrapperCol={{ span: 12 }}
             label="Do you have Insurance?"

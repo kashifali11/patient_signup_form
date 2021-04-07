@@ -15,7 +15,7 @@ export default function InsuranceAttestaion() {
           ]}
           wrapperCol={{offset:2}}
         >
-          <Checkbox>Insurance Attestaion</Checkbox>
+          <Checkbox>Insurance Attestation</Checkbox>
         </Form.Item>
       </Col>
     </>

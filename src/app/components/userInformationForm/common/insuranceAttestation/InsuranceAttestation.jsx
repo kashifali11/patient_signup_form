@@ -9,8 +9,10 @@ export default function InsuranceAttestaion({insuranceAttestationName}) {
           valuePropName="checked"
           rules={[
             {
-              required: true,
-              message: "Please click checkbox for attestation!",
+              validator: (_, value) =>
+                value
+                  ? Promise.resolve()
+                  : Promise.reject(new Error("Please click checkbox for attestation")),
             },
           ]}
           wrapperCol={{offset:2}}

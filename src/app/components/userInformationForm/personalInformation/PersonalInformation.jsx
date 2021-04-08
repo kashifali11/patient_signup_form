@@ -1,7 +1,53 @@
 import { Form, Row, Col, DatePicker, Select, Upload, Button, Typography } from "antd";
 import React from "react";
 import InputTextFieldList from "../../common/inputTextFieldList/InputTextFieldList.jsx";
-import { addressInfoInputAttributes, personalInfoInputAttributes } from "../../utils/personalInformationUtils.js";
+const personalInfoInputAttributes = [
+  {
+    name: ["personalInfo", "firstName"],
+    label: "First Name",
+    rules: [{ required: true, message: "Please input your first name!" }],
+  },
+  {
+    name: ["personalInfo", "lastName"],
+    label: "Last Name",
+    rules: [{ required: true, message: "Please input your last name!" }],
+  },
+  {
+    name: ["personalInfo", "phoneNo"],
+    label: "Phone Number",
+    rules: [{ required: true, message: "Please input your phone number!" }],
+  },
+  {
+    name: ["personalInfo", "email"],
+    label: "Email",
+    rules: [
+      { required: true, message: "Please input your email!" },
+      { type: "email", message: "Please input valid email!" },
+    ],
+  },
+];
+const addressInfoInputAttributes = [
+  {
+    name: ["personalInfo", "address"],
+    label: "Address",
+    rules: [{ required: true, message: "Please input your address!" }],
+  },
+  {
+    name: ["personalInfo", "city"],
+    label: "City",
+    rules: [{ required: true, message: "Please input your city name!" }],
+  },
+  {
+    name: ["personalInfo", "state"],
+    label: "State",
+    rules: [{ required: true, message: "Please input your state name!" }],
+  },
+  {
+    name: ["personalInfo", "zipCode"],
+    label: "Zip Code",
+    rules: [{ required: true, message: "Please input your zip code!" }],
+  },
+];
 
 const { Option } = Select;
 export default function PersonalInformation() {

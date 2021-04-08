@@ -1,8 +1,9 @@
-import Title from 'antd/lib/typography/Title'
-import React from 'react'
+import Title from "antd/lib/typography/Title";
+import React from "react";
 import UserInformationForm from "../components/userInformationForm/UserInformationForm.jsx";
+import { v4 as uuidv4 } from "uuid";
 export default function Home() {
-  const onSubmitionOfForm = (value) =>{
+  const onSubmitionOfForm = (values) => {
     const fieldsValues = {
       ...values,
       uuid: uuidv4(),
@@ -19,13 +20,21 @@ export default function Home() {
         return detail;
       }),
     };
-    console.log(fieldsValues);
-  }
-    return (
-        <div style={{margin:30}}>
-          <Title>Patient Signup Form</Title>
-          <UserInformationForm onFinish={onSubmitionOfForm} />
-        </div>
-    )
+    const body = fieldsValues;
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const options = {
+      method: "POST",
+      headers,
+      mode: "cors",
+      body: JSON.stringify(body),
+    };
+    fetch("https://enj1gr28datbc.x.pipedream.net/", options);
+  };
+  return (
+    <div style={{ margin: 30 }}>
+      <Title>Patient Signup Form</Title>
+      <UserInformationForm onFinish={onSubmitionOfForm} />
+    </div>
+  );
 }
-

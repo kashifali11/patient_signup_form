@@ -1,8 +1,8 @@
 import { Form, Col, DatePicker, Select, Typography } from "antd";
 import React, { useState } from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
-import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
-import InsuranceAttestation from "../../common/insuranceAttestation/InsuranceAttestation.jsx";
+import InsuranceInformation from "../../insuranceInformation/InsuranceInformation.jsx";
+import InsuranceAttestation from "../../insuranceAttestation/InsuranceAttestation.jsx";
 import { v4 as uuidv4 } from "uuid";
 const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {

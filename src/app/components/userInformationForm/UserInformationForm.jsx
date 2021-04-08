@@ -2,7 +2,6 @@ import { Form, Button } from "antd";
 import React from "react";
 import PersonalInformation from "./personalInformation/PersonalInformation.jsx";
 import InsuranceDetails from "./insuranceDetails/InsuranceDetails.jsx";
-import { v4 as uuidv4 } from "uuid";
 import FamilyDetails from "./familyDetails/FamilyDetailsList.jsx";
 export const layout = {
   labelCol: { span: 6 },

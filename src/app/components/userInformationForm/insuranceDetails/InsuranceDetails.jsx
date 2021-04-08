@@ -1,7 +1,7 @@
 import { Typography, Form, Select, Row, Col } from "antd";
 import React, { useState } from "react";
-import InsuranceAttestaion from "../common/insuranceAttestation/InsuranceAttestation.jsx";
-import InsuranceInformation from "../common/insuranceInformation/InsuranceInformation.jsx";
+import InsuranceAttestaion from "../insuranceAttestation/InsuranceAttestation.jsx";
+import InsuranceInformation from "../insuranceInformation/InsuranceInformation.jsx";
 
 const insuranceNumberInputAttributes = {
   name: ["insuranceDetails", "insuranceNumber"],

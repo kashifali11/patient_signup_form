@@ -1,31 +1,52 @@
 import { Form, Col, DatePicker, Select, Typography } from "antd";
 import React, { useState } from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
-import {
-  getInputAttributesForFamilyMemberDetails,
-  getInsuranceCompanySelectAttributes,
-  getInsuranceNumberInputAttributes,
-  getInsuranceSnapshotUploadAttributes,
-} from "../../../../utils/familyMemberDetailsUtils";
 import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
 import InsuranceAttestation from "../../common/insuranceAttestation/InsuranceAttestation.jsx";
 import { v4 as uuidv4 } from "uuid";
 const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {
   const [insuranceStatus, setInsuranceStatus] = useState("");
-  const memberDetailsInputAttributes = getInputAttributesForFamilyMemberDetails(
-    field
-  );
-  const insuranceSnapshotUploadAttributes = getInsuranceSnapshotUploadAttributes(
-    field
-  );
-  const insuranceCompanySelectAttributes = getInsuranceCompanySelectAttributes(
-    field
-  );
-  const insuranceNumberInputAttributes = getInsuranceNumberInputAttributes(
-    field
-  );
   const { fieldKey, name } = field;
+  const memberDetailsInputAttributes = [
+    {
+      name: [name, "firstName"],
+      label: "First Name",
+      fieldKey: [fieldKey, "firstName"],
+      rules: [
+        {
+          required: true,
+          message: "Please input first name of family member!",
+        },
+      ],
+    },
+    {
+      name: [name, "lastName"],
+      label: "Last Name",
+      fieldKey: [fieldKey, "lastName"],
+      rules: [
+        { required: true, message: "Please input last name of family member!" },
+      ],
+    },
+  ];
+  const insuranceSnapshotUploadAttributes = {
+    name: [name, "insuranceSnapshot"],
+    fieldKey: [fieldKey, "firstName"],
+    label: "Insurance Document Snapshots",
+    rules: [{ required: true, message: "Please upload insurance snapshots!" }],
+  };
+  const insuranceCompanySelectAttributes = {
+    name: [name, "insuranceCompany"],
+    fieldKey: [fieldKey, "firstName"],
+    label: "Insurance Company",
+    rules: [{ required: true, message: "Please select insurance company!" }],
+  };
+  const insuranceNumberInputAttributes = {
+    name: [name, "insuranceNumber"],
+    fieldKey: [fieldKey, "firstName"],
+    label: "Insurance Number",
+    rules: [{ required: true, message: "Please enter your insurance number!" }],
+  };
   const handleInsuranceStatusChange = (value) => {
     setInsuranceStatus(value);
   };

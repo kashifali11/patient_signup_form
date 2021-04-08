@@ -7,7 +7,7 @@ import {
   insuranceNumberInputAttributes,
   insuranceOptions,
   insuranceSnapshotUploadAttributes,
-} from "../../utils/insuranceDetailsUtils.js";
+} from "../../../utils/insuranceDetailsUtils";
 
 export default function InsuranceDetails({ form }) {
   const [haveInsurance, setHaveInsurance] = useState("");

@@ -6,7 +6,7 @@ import {
   getInsuranceCompanySelectAttributes,
   getInsuranceNumberInputAttributes,
   getInsuranceSnapshotUploadAttributes,
-} from "../../../utils/familyMemberDetailsUtils.js";
+} from "../../../../utils/familyMemberDetailsUtils";
 import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
 import InsuranceAttestation from "../../common/insuranceAttestation/InsuranceAttestation.jsx";
 import { v4 as uuidv4 } from "uuid";

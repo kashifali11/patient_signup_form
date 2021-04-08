@@ -1,7 +1,7 @@
 import { Form, Row, Col, DatePicker, Select, Upload, Button, Typography } from "antd";
 import React from "react";
 import InputTextFieldList from "../../common/inputTextFieldList/InputTextFieldList.jsx";
-import { addressInfoInputAttributes, personalInfoInputAttributes } from "../../utils/personalInformationUtils.js";
+import { addressInfoInputAttributes, personalInfoInputAttributes } from "../../../utils/personalInformationUtils";
 
 const { Option } = Select;
 export default function PersonalInformation() {

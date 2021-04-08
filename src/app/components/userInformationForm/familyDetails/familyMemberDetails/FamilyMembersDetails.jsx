@@ -1,4 +1,4 @@
-import { Form, Col, DatePicker, Select } from "antd";
+import { Form, Col, DatePicker, Select, Typography } from "antd";
 import React, { useState } from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
 import {
@@ -30,6 +30,7 @@ export default function FamilyMembersDetails({ field, form }) {
   };
   return (
     <>
+      <Col xs={24}><Typography.Title level={5}>Family Member's Details</Typography.Title></Col>
       <InputTextFieldList inputAttributes={memberDetailsInputAttributes} />
       <Col className="gutter-row" span={6} xs={24} xl={8}>
         <Form.Item

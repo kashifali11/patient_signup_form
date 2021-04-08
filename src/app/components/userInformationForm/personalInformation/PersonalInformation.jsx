@@ -1,53 +1,7 @@
 import { Form, Row, Col, DatePicker, Select, Upload, Button, Typography } from "antd";
 import React from "react";
 import InputTextFieldList from "../../common/inputTextFieldList/InputTextFieldList.jsx";
-const personalInfoInput = [
-  {
-    name: ["personalInfo", "firstName"],
-    label: "First Name",
-    rules: [{ required: true, message: "Please input your first name!" }],
-  },
-  {
-    name: ["personalInfo", "lastName"],
-    label: "Last Name",
-    rules: [{ required: true, message: "Please input your last name!" }],
-  },
-  {
-    name: ["personalInfo", "phoneNo"],
-    label: "Phone Number",
-    rules: [{ required: true, message: "Please input your phone number!" }],
-  },
-  {
-    name: ["personalInfo", "email"],
-    label: "Email",
-    rules: [
-      { required: true, message: "Please input your email!" },
-      { type: "email", message: "Please input valid email!" },
-    ],
-  },
-];
-const addressInfoInput = [
-  {
-    name: ["personalInfo", "address"],
-    label: "Address",
-    rules: [{ required: true, message: "Please input your address!" }],
-  },
-  {
-    name: ["personalInfo", "city"],
-    label: "City",
-    rules: [{ required: true, message: "Please input your city name!" }],
-  },
-  {
-    name: ["personalInfo", "state"],
-    label: "State",
-    rules: [{ required: true, message: "Please input your state name!" }],
-  },
-  {
-    name: ["personalInfo", "zipCode"],
-    label: "Zip Code",
-    rules: [{ required: true, message: "Please input your zip code!" }],
-  },
-];
+import { addressInfoInputAttributes, personalInfoInputAttributes } from "../../utils/personalInformationUtils.js";
 
 const { Option } = Select;
 export default function PersonalInformation() {
@@ -55,7 +9,7 @@ export default function PersonalInformation() {
     <>
     <Typography.Title level={4}>Personal Information</Typography.Title>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <InputTextFieldList inputAttributes={personalInfoInput} />
+        <InputTextFieldList inputAttributes={personalInfoInputAttributes} />
         <Col className="gutter-row" span={6} xs={24} xl={8}>
           <Form.Item
             label="Date of Birth"
@@ -80,7 +34,7 @@ export default function PersonalInformation() {
             </Select>
           </Form.Item>
         </Col>
-        <InputTextFieldList inputAttributes={addressInfoInput} />
+        <InputTextFieldList inputAttributes={addressInfoInputAttributes} />
         <Col className="gutter-row" span={6} xs={24} xl={8}>
           <Form.Item
             name={["personalInfo", "snapshotOfId"]}

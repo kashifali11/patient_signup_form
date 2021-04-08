@@ -1,16 +1,18 @@
 import React from "react";
 import { Col, Form, Checkbox } from "antd";
-export default function InsuranceAttestaion() {
+export default function InsuranceAttestaion({insuranceAttestationName}) {
   return (
     <>
       <Col span={24} xs={24} sm={12}>
         <Form.Item
-          name={["insuranceDetails", "attestaion"]}
+          name={insuranceAttestationName}
           valuePropName="checked"
           rules={[
             {
-              required: true,
-              message: "Please click checkbox for attestation!",
+              validator: (_, value) =>
+                value
+                  ? Promise.resolve()
+                  : Promise.reject(new Error("Please click checkbox for attestation")),
             },
           ]}
           wrapperCol={{offset:2}}

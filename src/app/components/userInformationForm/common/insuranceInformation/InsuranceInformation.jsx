@@ -12,41 +12,28 @@ const insuranceCompanies = [
   { label: "Healthspring", value: "Healthspring" },
   { label: "Molina Healthcare", value: "Molina Healthcare" },
 ];
-export default function InsuranceInformation() {
+export default function InsuranceInformation({
+  insuranceSnapshotUploadAttributes,
+  insuranceCompanySelectAttributes,
+  insuranceNumberInputAttributes,
+}) {
+
   return (
     <>
       <Col span={8} xs={24} sm={22} lg={18} xl={14}>
-        <Form.Item
-          name={["insuranceDetails", "insuranceSnapshot"]}
-          label="Insurance Document Snapshots"
-          rules={[
-            { required: true, message: "Please upload insurance snapshots!" },
-          ]}
-        >
+        <Form.Item {...insuranceSnapshotUploadAttributes}>
           <Upload>
             <Button>Upload</Button>
           </Upload>
         </Form.Item>
       </Col>
       <Col span={8} xs={24} sm={22} lg={18} xl={14}>
-        <Form.Item
-          name={["insuranceDetails", "insuranceCompany"]}
-          label="Insurance Company"
-          rules={[
-            { required: true, message: "Please select insurance company!" },
-          ]}
-        >
-          <Select options={insuranceCompanies}></Select>
+        <Form.Item {...insuranceCompanySelectAttributes}>
+          <Select  options={insuranceCompanies}></Select>
         </Form.Item>
       </Col>
       <Col span={8} xs={24} sm={22} lg={18} xl={14}>
-        <Form.Item
-          name={["insuranceDetails", "insuranceNumber"]}
-          label="Insurance Number"
-          rules={[
-            { required: true, message: "Please enter your insurance number!" },
-          ]}
-        >
+        <Form.Item {...insuranceNumberInputAttributes}>
           <Input />
         </Form.Item>
       </Col>

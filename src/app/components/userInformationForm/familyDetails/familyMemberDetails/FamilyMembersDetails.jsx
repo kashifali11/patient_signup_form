@@ -1,16 +1,31 @@
 import { Form, Col, DatePicker, Select } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
-import { getInputAttributesForFamilyMemberDetails } from "../../../utils/familyMemberDetailsUtils.js";
-
+import {
+  getInputAttributesForFamilyMemberDetails,
+  getInsuranceCompanySelectAttributes,
+  getInsuranceNumberInputAttributes,
+  getInsuranceSnapshotUploadAttributes,
+} from "../../../utils/familyMemberDetailsUtils.js";
+import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
 const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {
+  const [insuranceStatus, setInsuranceStatus] = useState("");
   const memberDetailsInputAttributes = getInputAttributesForFamilyMemberDetails(
+    field
+  );
+  const insuranceSnapshotUploadAttributes = getInsuranceSnapshotUploadAttributes(
+    field
+  );
+  const insuranceCompanySelectAttributes = getInsuranceCompanySelectAttributes(
+    field
+  );
+  const insuranceNumberInputAttributes = getInsuranceNumberInputAttributes(
     field
   );
   const { fieldKey, name } = field;
   const handleInsuranceStatusChange = (value) => {
-    console.log(value);
+    setInsuranceStatus(value);
   };
   return (
     <>
@@ -50,6 +65,15 @@ export default function FamilyMembersDetails({ field, form }) {
           </Select>
         </Form.Item>
       </Col>
+      {insuranceStatus === "other" ? (
+        <InsuranceInformation
+          insuranceSnapshotUploadAttributes={insuranceSnapshotUploadAttributes}
+          insuranceCompanySelectAttributes={insuranceCompanySelectAttributes}
+          insuranceNumberInputAttributes={insuranceNumberInputAttributes}
+        />
+      ) : (
+        <div />
+      )}
     </>
   );
 }

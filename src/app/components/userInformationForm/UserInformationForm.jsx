@@ -17,11 +17,23 @@ export default function UserInformationForm() {
         dob: values.personalInfo.dob.format("YYYY-MM-DD"),
         snapshotOfId: values.personalInfo.snapshotOfId.fileList,
       },
+      familyDetails: values.familyDetails.map((detail) => {
+        if (detail.insuranceSnapshot !== undefined) {
+          detail.insuranceSnapshot = detail.insuranceSnapshot.fileList;
+        }
+        detail.dob = detail.dob.format("YYYY-MM-DD");
+        return detail;
+      }),
     };
     console.log(fieldsValues);
   };
   return (
-    <Form form={form} {...layout} name="patient_signup_form" onFinish={onFinish}>
+    <Form
+      form={form}
+      {...layout}
+      name="patient_signup_form"
+      onFinish={onFinish}
+    >
       <PersonalInformation />
       <InsuranceDetails form={form} />
       <FamilyDetails form={form} />

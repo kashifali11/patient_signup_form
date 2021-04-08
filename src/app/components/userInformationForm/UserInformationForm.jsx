@@ -9,27 +9,8 @@ export const layout = {
   wrapperCol: { span: 16 },
 };
 
-export default function UserInformationForm() {
+export default function UserInformationForm({onFinish}) {
   const [form] = Form.useForm();
-  const onFinish = (values) => {
-    const fieldsValues = {
-      ...values,
-      uuid: uuidv4(),
-      personalInfo: {
-        ...values.personalInfo,
-        dob: values.personalInfo.dob.format("YYYY-MM-DD"),
-        snapshotOfId: values.personalInfo.snapshotOfId.fileList,
-      },
-      familyDetails: values.familyDetails.map((detail) => {
-        if (detail.insuranceSnapshot !== undefined) {
-          detail.insuranceSnapshot = detail.insuranceSnapshot.fileList;
-        }
-        detail.dob = detail.dob.format("YYYY-MM-DD");
-        return detail;
-      }),
-    };
-    console.log(fieldsValues);
-  };
   return (
     <Form
       form={form}

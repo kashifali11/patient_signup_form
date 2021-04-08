@@ -1,31 +1,14 @@
 import { Form, Col, DatePicker, Select } from "antd";
 import React from "react";
 import InputTextFieldList from "../../../common/inputTextFieldList/InputTextFieldList.jsx";
+import { getInputAttributesForFamilyMemberDetails } from "../../../utils/familyMemberDetailsUtils.js";
 
+const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {
-  const { fieldKey, name, isListedField } = field;
-  const { Option } = Select;
-  const memberDetailsInputAttributes = [
-    {
-      name: [name, "firstName"],
-      label: "First Name",
-      fieldKey: [fieldKey, "firstName"],
-      rules: [
-        {
-          required: true,
-          message: "Please input first name of family member!",
-        },
-      ],
-    },
-    {
-      name: [name, "lastName"],
-      label: "Last Name",
-      fieldKey: [fieldKey, "lastName"],
-      rules: [
-        { required: true, message: "Please input last name of family member!" },
-      ],
-    },
-  ];
+  const memberDetailsInputAttributes = getInputAttributesForFamilyMemberDetails(
+    field
+  );
+  const { fieldKey, name } = field;
   const handleInsuranceStatusChange = (value) => {
     console.log(value);
   };

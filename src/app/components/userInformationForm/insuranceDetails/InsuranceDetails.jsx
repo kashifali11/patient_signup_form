@@ -48,7 +48,7 @@ export default function InsuranceDetails({ form }) {
             insuranceNumberInputAttributes={insuranceNumberInputAttributes}
           />
         ) : haveInsurance === "no" ? (
-          <InsuranceAttestaion />
+          <InsuranceAttestaion insuranceAttestationName={["insuranceDetails", "attestaion"]}/>
         ) : (
           <></>
         )}

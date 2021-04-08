@@ -30,7 +30,9 @@ export default function FamilyMembersDetails({ field, form }) {
   };
   return (
     <>
-      <Col xs={24}><Typography.Title level={5}>Family Member's Details</Typography.Title></Col>
+      <Col xs={24}>
+        <Typography.Title level={5}>Family Member's Details</Typography.Title>
+      </Col>
       <InputTextFieldList inputAttributes={memberDetailsInputAttributes} />
       <Col className="gutter-row" span={6} xs={24} xl={8}>
         <Form.Item
@@ -74,7 +76,9 @@ export default function FamilyMembersDetails({ field, form }) {
           insuranceNumberInputAttributes={insuranceNumberInputAttributes}
         />
       ) : insuranceStatus === "none" ? (
-        <InsuranceAttestation insuranceAttestationName={[name, "attestation"]} />
+        <InsuranceAttestation
+          insuranceAttestationName={[name, "attestation"]}
+        />
       ) : (
         <></>
       )}

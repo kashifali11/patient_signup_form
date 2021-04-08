@@ -8,6 +8,7 @@ import {
   getInsuranceSnapshotUploadAttributes,
 } from "../../../utils/familyMemberDetailsUtils.js";
 import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
+import InsuranceAttestation from "../../common/insuranceAttestation/InsuranceAttestation.jsx";
 const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {
   const [insuranceStatus, setInsuranceStatus] = useState("");
@@ -71,8 +72,10 @@ export default function FamilyMembersDetails({ field, form }) {
           insuranceCompanySelectAttributes={insuranceCompanySelectAttributes}
           insuranceNumberInputAttributes={insuranceNumberInputAttributes}
         />
+      ) : insuranceStatus === "none" ? (
+        <InsuranceAttestation insuranceAttestationName={[name, "attestation"]} />
       ) : (
-        <div />
+        <></>
       )}
     </>
   );

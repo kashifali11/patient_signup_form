@@ -2,7 +2,7 @@ import { Form, Typography, Button, Space, Row } from "antd";
 import React from "react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import FamilyMembersDetails from "./familyMemberDetails/FamilyMembersDetails.jsx";
-export default function FamilyDetails({form}) {
+export default function FamilyDetails({ form }) {
   return (
     <>
       <Form.List name="familyDetails">
@@ -19,7 +19,16 @@ export default function FamilyDetails({form}) {
                 )}
                 <Row>
                   <FamilyMembersDetails field={field} form={form} />{" "}
-                  <MinusCircleOutlined onClick={() => remove(field.name)} />
+                  <Form.Item style={{width: "100%"}}>
+                    <Button
+                      style={{margin: "auto"}}
+                      type="danger"
+                      onClick={() => remove(field.name)}
+                      icon={<MinusCircleOutlined />}
+                    >
+                      Remove Famliy Member
+                    </Button>
+                  </Form.Item>
                 </Row>
               </div>
             ))}

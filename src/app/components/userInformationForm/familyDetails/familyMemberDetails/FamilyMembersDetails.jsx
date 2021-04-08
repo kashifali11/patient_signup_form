@@ -9,6 +9,7 @@ import {
 } from "../../../utils/familyMemberDetailsUtils.js";
 import InsuranceInformation from "../../common/insuranceInformation/InsuranceInformation.jsx";
 import InsuranceAttestation from "../../common/insuranceAttestation/InsuranceAttestation.jsx";
+import { v4 as uuidv4 } from "uuid";
 const { Option } = Select;
 export default function FamilyMembersDetails({ field, form }) {
   const [insuranceStatus, setInsuranceStatus] = useState("");
@@ -30,6 +31,7 @@ export default function FamilyMembersDetails({ field, form }) {
   };
   return (
     <>
+      <Form.Item initialValue={uuidv4()} name={[name, "uuid"]} />
       <Col xs={24}>
         <Typography.Title level={5}>Family Member's Details</Typography.Title>
       </Col>
